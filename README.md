@@ -1,1 +1,1 @@
-# 스마트인재개발원 First Project
+# 스마트인재개발원 Second Project
