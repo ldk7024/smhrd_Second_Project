@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mybatis.BoardMapper">
+
+	<select id="boardList" resultType="boardVO"> <!-- id:메소드명 일반적 -->
+		select board_idx,board_title,board_content,board_writer,DATE_FORMAT(board_indate,'%Y-%m-%d') AS board_indate from Board
+	</select>
+	
+
+	<insert id="boardInsert">
+		insert into tbl_board(title, contents, writer)
+		values(#{title},#{contents},#{writer})
+	</insert>
+		
+		<delete id="boardDelete">
+		delete from tbl_board where idx=#{idx}
+	</delete>
+
+	<select id="boardContent" resultType="boardVO">
+		select board_idx, board_title,
+		board_content, board_writer, board_count, DATE_FORMAT(board_indate, '%Y-%m-%d')
+		AS board_indate from
+		Board where board_idx=#{board_idx}
+	</select>
+	
+	<update id="boardUpdate">
+		update Board set board_title=#{board_title}, board_content=#{board_content} where board_idx=#{board_idx}
+	</update>
+	
+	 <select id="loginMember" resultType="memberVO">
+		select * from Member where
+		member_id=#{member_id} and member_pw=#{member_pw}
+	</select>
+	<insert id="join">
+		insert into member(member_id, member_pw, member_name, member_birth, member_class)
+		values(#{member_id},#{member_pw},#{member_name},#{member_birth},#{member_class})
+	</insert>
+	<update id="memberupdate">
+		update tbl_user set password=#{password}, address=#{address} where user_id=#{user_id}
+	</update>
+	
+	<select id="bookList" resultType="bookVO"> <!-- id:메소드명 일반적 -->
+		select * from Book where book_name=#{book_name}
+	</select>
+	<update id="updateBoardCount" parameterType="String">
+        update board
+              set board_count = board_count + 1
+         WHERE board=#{idx}
+    </update>
+
+	
+	
+
+</mapper>
