@@ -1,4 +1,4 @@
-!(https://user-images.githubusercontent.com/65816974/124058035-91f06380-da63-11eb-9a2a-8f1f8aeaaa6f.PNG)
+![코알라 배너](https://user-images.githubusercontent.com/65816974/124058074-a3d20680-da63-11eb-95c8-f4f647535ce3.PNG)
 # 스마트인재개발원 Second Project
 ## 인기 도서 예측을 통한 작은도서관 통합 관리 서비스
 ### 2021. 06.30
